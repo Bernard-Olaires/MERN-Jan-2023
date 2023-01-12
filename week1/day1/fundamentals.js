@@ -118,6 +118,7 @@ for (var index = 0; index < evenNums.length; index++) {
 
 // * function syntax
 
+
 const sayHi= () => {  
     console.log("Hello World!");
 }

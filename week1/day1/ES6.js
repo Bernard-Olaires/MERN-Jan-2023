@@ -2,32 +2,35 @@
 // ? What does this mean? 
 // * var variables are function scoped which means they are only available within the function they are defined in 
 // * When var variables are not defined within a function they are global scoped which means they are able to be accessed from anywhere
-var personOne = "Instructor Caden";
-var personOne = "Instructor Bob";
+// var personOne = "Instructor Caden";
 
-console.log(personOne);
 
-if (personOne === "Instructor Caden"){
-    var personOne = "Bob Ross";
-    console.log('**************',personOne);
-}
 
-console.log(personOne);
+// console.log(personOne);
+
+// if (personOne === "Instructor Caden"){
+//     var personOne = "Bob Ross";
+//     console.log('**************',personOne);
+// }
+
+// console.log(personOne);
 
 let amysName = "Amy Williams";
 
+console.log(amysName);
+
 
 if (amysName == "Amy Williams"){
-    let bob = "Bob Ross";
-    // console.log("let inside block: "+amysName);
+    let amysName = "Bob Ross";
+    console.log("let inside block: "+amysName);
 }
-console.log(bob);
+console.log(amysName);
 
 
-const luke = "Luke Skylwalker";
+// const luke = "Luke Skylwalker";
 
-luke = "Hans Solo";
-console.log(luke);
+// luke = "Hans Solo";
+// console.log(luke);
 
 
 
@@ -90,3 +93,5 @@ const StudentMacy = {
 }
 let {name:fName} = StudentMacy
 console.log(fName);
+
+
