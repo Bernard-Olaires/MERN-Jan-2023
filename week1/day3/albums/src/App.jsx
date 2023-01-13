@@ -18,6 +18,7 @@ function App() {
         releaseYear={2021}
         recordsSold={1000000}
       />
+      
     </div>
   );
 }
