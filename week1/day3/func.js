@@ -18,7 +18,7 @@ console.log(displayAlbumInfo(
     {
         albumName: 'Master Of Puppets',
         bandName: 'Metallica',
-        releaseYear: 187,
+        releaseYear: 1987,
         recordsSold: 5000000
     }
     ))
