@@ -22,3 +22,22 @@ console.log(displayAlbumInfo(
         recordsSold: 5000000
     }
     ))
+
+
+
+
+
+
+
+const employee = {
+    fName:'Caden',
+    role:'instructor',
+    stacks: ['Web Fund', 'Python', 'MERN'],
+    age:25
+}
+const {fName, role, stacks:[stack1,stack2,stack3]} = employee
+// const {fName, role, ...everythingElse} = employee
+
+// console.log(everythingElse);
+
+// console.log(fName, role, stack1, stack2, stack3);

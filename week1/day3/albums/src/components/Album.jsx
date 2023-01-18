@@ -1,9 +1,10 @@
 import React from "react";
+import './Album.css'
 
 const Album = (props) => {
     // console.log(props)
     return (
-        <div>
+        <div className="album">
             <h2>Album Name: {props.albumName}</h2>
             <h3>Artist: {props.artistName}</h3>
             <h3>Release Year: {props.releaseYear}</h3>
