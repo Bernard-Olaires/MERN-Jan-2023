@@ -1,0 +1,7 @@
+.d-flex{
+    display: flex;
+    justify-content: center;
+}
+.App{
+    text-align: center;
+}
