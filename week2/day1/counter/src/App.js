@@ -9,7 +9,10 @@ function App() {
     // * better way to change state ONLY when what your changing state to is based on the current value of state 
     // * We need to know what state is in order to increase it by one so we use the function version 
     // * this guarantees that React will give us with the most up to date value from state  
-    setState(prevState => prevState+1)
+    // setState(prevState => prevState+1)
+    // setState(prevState => prevState+1)
+    // setState(state+1)
+    // setState(state+1)
 
     // setState(state+1)
     console.log(state);
