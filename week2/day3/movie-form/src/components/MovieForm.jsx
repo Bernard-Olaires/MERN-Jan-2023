@@ -15,6 +15,8 @@ const MovieForm = (props) => {
         releaseDate:'',
         boxOfficeSales:0
     })
+    //     Getter (arr) Setter (function)
+    const [movieList, setMovieList] = useState([])
 
     const handleInputChange = (e) =>{
         setMovie({...movie, [e.target.name]:e.target.value})
@@ -22,57 +24,93 @@ const MovieForm = (props) => {
 
     const submitHandler = (e) =>{
         e.preventDefault();
-        console.log(`New Movie: ${JSON.stringify(movie)}`)
-        setMovie({
-            title:'',
-            genre:'',
-            releaseDate:'',
-            boxOfficeSales:0
-        })
+        // console.log(`New Movie: ${JSON.stringify(movie)}`)
+
+        // Check the values of the the movie object to make sure they all meet our validations 
+        if(movie.title.length < 3 || movie.genre.length < 3 || movie.releaseDate.length <= 0 || movie.boxOfficeSales <= 0){
+            return false
+        }
+        
+        else{
+            setMovieList([...movieList, movie])
+            setMovie({
+                title:'',
+                genre:'',
+                releaseDate:'',
+                boxOfficeSales:0
+            })
+
+        }
+        // if all validations are met do the following
+        // If any of the validations are not met end the function and display the errors
     }
 
     return (
         <div>
             <form onSubmit={submitHandler}>
-                <label htmlFor="title">Title:</label>
-                <input type="text" onChange={handleInputChange} name='title' value={movie.title}/>
+                <label className='form-label' htmlFor="title">Title:</label>
+                <input className='form-control' type="text" onChange={handleInputChange} name='title' value={movie.title}/>
 
                 {
                     movie.title.length < 3?
-                    <p>Title must be 3 or more characters</p>:
+                    <p className='text-danger'>Title must be 3 or more characters</p>:
                     null
                 }
 
-                <label htmlFor="genre">Genre:</label>
-                <input type="text" onChange={handleInputChange} name='genre' value={movie.genre}/>
+                <label className='form-label' htmlFor="genre">Genre:</label>
+                <input className='form-control'  type="text" onChange={handleInputChange} name='genre' value={movie.genre}/>
 
                 {
                     movie.genre.length < 3?
-                    <p>Genre must be 3 or more characters</p>:
+                    <p className='text-danger'>Genre must be 3 or more characters</p>:
                     null
                 }
 
-                <label htmlFor="releaseDate">Release Date:</label>
-                <input type="date" onChange={handleInputChange} name='releaseDate' value={movie.releaseDate}/>
+                <label className='form-label' htmlFor="releaseDate">Release Date:</label>
+                <input className='form-control'  type="date" onChange={handleInputChange} name='releaseDate' value={movie.releaseDate}/>
 
                 
                 {
                     movie.releaseDate.length <= 0?
-                    <p>Must put a release date</p>:
+                    <p className='text-danger'>Must put a release date</p>:
                     null
                 }
 
-                <label htmlFor="boxOfficeSales">Box Office Sales:</label>
-                <input type="number" onChange={handleInputChange} name='boxOfficeSales' value={movie.boxOfficeSales}/>
+                <label className='form-label' htmlFor="boxOfficeSales">Box Office Sales:</label>
+                <input className='form-control'  type="number" onChange={handleInputChange} name='boxOfficeSales' value={movie.boxOfficeSales}/>
 
                 {
                     movie.boxOfficeSales <= 0?
-                    <p>Cannot be blank or negative</p>:
+                    <p className='text-danger'>Cannot be blank or negative</p>:
                     null
                 }
-
-                <button>Add Movie</button>
+                <button className='btn btn-primary'>Add Movie</button>
             </form>
+            {/* using {} with a return  */}
+
+            {/* {
+                movieList.map((movie) => {
+                    return (
+                        <div>
+                            <p>Title: {movie.title}</p>
+                            <p>Genre: {movie.genre}</p>
+                            <p>Release Date: {movie.releaseDate}</p>
+                            <p>Box Office Sales: {movie.boxOfficeSales}</p>
+                        </div>
+                    )
+                })
+            } */}
+
+            {
+                movieList.map((movie) => (
+                    <div>
+                        <p>Title: {movie.title}</p>
+                        <p>Genre: {movie.genre}</p>
+                        <p>Release Date: {movie.releaseDate}</p>
+                        <p>Box Office Sales: {movie.boxOfficeSales}</p>
+                    </div>
+                ))
+            }
         </div>
     )
 }

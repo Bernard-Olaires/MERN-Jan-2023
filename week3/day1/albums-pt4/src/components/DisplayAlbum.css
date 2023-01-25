@@ -1,0 +1,8 @@
+.album-container{
+    border: 2px solid blue;
+    display: flex;
+    justify-content: space-around;
+}
+.album{
+    border: 2px solid red;
+}
