@@ -18,11 +18,9 @@ function App() {
       <Link to={'/'}>Go To Root</Link>
       <Form/>
       <Routes>
-        <Route >
-          <Route path='/' element={<Welcome/>}/>
-          <Route path='/home' element={ <Home/> }/> 
-          <Route path='/about' element={<About/>}/> 
-        </Route>
+        <Route path='/' element={<Welcome/>}/>
+        <Route path='/home' element={ <Home/> }/> 
+        <Route path='/about' element={<About/>}/> 
         <Route path='/home/:color/:id' element={<WordAndNum/>}/>
       </Routes>
     </div>
