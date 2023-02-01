@@ -19,9 +19,9 @@ function App() {
       <Form/>
       <Routes>
         <Route >
-          <Route path='/books' element={<Welcome/>}/>
-          <Route path='/books/new' element={ <Home/> }/> 
-          <Route path='/books/:id' element={<About/>}/> 
+          <Route path='/' element={<Welcome/>}/>
+          <Route path='/home' element={ <Home/> }/> 
+          <Route path='/about' element={<About/>}/> 
         </Route>
         <Route path='/home/:color/:id' element={<WordAndNum/>}/>
       </Routes>
