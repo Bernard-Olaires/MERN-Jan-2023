@@ -30,6 +30,40 @@ console.log(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]))
 console.log(breakingRecords([3, 4, 21, 36, 10, 28, 35, 5, 24, 42]))
 
 
+// Itterate over an object
+let obj = {a:1, b:2, c:'C'}
+for (let key in obj){
+    console.log(obj[key])
+}
+
+
+
+
+
+
+
+let coordinate = {x:2, y:1, xy:9}
+// Check if x+y = 3
+console.log('X', coordinate['x'])
+console.log('Y', coordinate['y'])
+//           2                   1
+// let sum = coordinate['x'] + coordinate['y']
+//           coordinate['xy']
+let sum = coordinate['x' + 'y']
+
+console.log(sum)
+
+
+
+let coordinates = [
+    {x:1, y:2},
+    {x:3, y:1},
+    {x:4, y:6},
+    {x:0, y:4},
+]
+// * Given the list of coordinates above determine if x+y = n 
+// * return back a number of how many times x+y = n 
+
 
 
 // Given a string return an object with the count of every character in the string 
