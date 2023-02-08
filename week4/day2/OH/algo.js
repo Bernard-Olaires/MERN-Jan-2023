@@ -42,7 +42,7 @@ for (let key in obj){
 
 
 
-let coordinate = {x:2, y:1, xy:9}
+let coordinate = {x:2, y:1}
 // Check if x+y = 3
 console.log('X', coordinate['x'])
 console.log('Y', coordinate['y'])
@@ -68,24 +68,7 @@ let coordinates = [
 ]
 // * Given the list of coordinates above determine if x+y = n 
 // * return back a number of how many times x+y = n 
-let x = null
-let y = null
-let count = 0
-for (let idx in coordinates){
-    for (let key in coordinates[idx]){
-        // console.log(coordinates[idx][key] )
-        if (key === 'x'){
-            x = coordinates[idx][key]
-        }
-        else if(key === 'y'){
-            y = coordinates[idx][key]
-        }
-    }
-    if (x+y === 3){
-        count++
-    }
-}
-console.log(count)
+
 
 // Given a string return an object with the count of every character in the string 
 // example charCount('hello') would return {h:1, e:1, l:2, o:1}
