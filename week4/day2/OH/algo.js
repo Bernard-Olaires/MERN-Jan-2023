@@ -30,6 +30,77 @@ console.log(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]))
 console.log(breakingRecords([3, 4, 21, 36, 10, 28, 35, 5, 24, 42]))
 
 
+
+
+// Given a list of 'weak passwords' and a password (string) determine if the password is strong or weak 
+// if the password is in the list of weak passwords return 'Weak password'
+// if the password is not found in the list of weak passwords return 'Strong password'
+let weakPass = ['12345678', 'password', 'secretPassword', 'strongPassword', 'youllNeverGuess']
+let pass = 'asdf#$$GEG'
+// let password2 = 'passwords'
+// console.log(password === password2)
+
+
+// write a function that takes in 2 parameters (weakpasswordlist, password)
+// loop through the array of weakpasswords
+// compare the password to each value in the array 
+// if the password is found in the array return 'Weak password'
+// otherwise return 'Strong password'
+
+const strongOrWeakPassword = (weakPasswordList, password) => {
+    for(let idx = 0; idx < weakPasswordList.length; idx++){
+        // console.log('TYPE OF PASSWORD', typeof(password))
+        // console.log('TYPE OF PASSWORD IN LIST',typeof(weakPasswordList[idx]))
+        if(password == weakPasswordList[idx]){
+            // console.log('Weak password')
+            return 'Weak password'
+        }
+    }
+    return 'Strong Password'
+}
+console.log(strongOrWeakPassword(weakPass,pass))
+
+
+// Reverse an array 
+// example reverseArr([1,2,3,4]) would return [4,3,2,1]
+
+// first itteration [4]
+// second itteration [4,3]
+// third itteration [4,3,2]
+// fourth itteration [4,3,2,1]
+
+
+let result = [1,2,3]
+result.pop()
+console.log(result)
+// Write a function that takes in an arr assume the values will all be numbers
+// loop through the array from the end
+// push the value into result 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Itterate over an object
 let obj = {a:1, b:2, c:'C'}
 for (let key in obj){
@@ -52,9 +123,8 @@ console.log('Y', coordinate['y'])
 // let sum = coordinate['x'] + coordinate['y']
 
 
-// this will not work it will concatenate the 2 strings ('x', 'y') so it will look for a key of 'xy' in the coordinate object 
-//           coordinate['xy']
-let sum = coordinate['x' + 'y']
+// the code below will not work it will concatenate the 2 strings ('x', 'y') so it will look for a key of 'xy' in the coordinate object 
+// let sum = coordinate['x' + 'y'] // ===> coordinate['xy']
 
 console.log(sum)
 
@@ -79,14 +149,14 @@ let coordinates = [
 // * If it doesnt exist then we need to add it to result and set the value to one 
 // ! {h:1, e:1, l:2, o:1}
 function charCount(str){
-    let result = {} // {h:1, e:1, l:2, o:1}
+    let result = {}
     for(let i = 0; i < str.length; i++){
-        let char = str[i] // o
+        let char = str[i] 
         console.log('CHAR', char);
-        if(result[char]){ //result[o]
+        if(result[char]){ 
             result[char] = result[char] + 1
         }else{
-            result[char] = 1 // result[o] = 1
+            result[char] = 1
         }
     }
     console.log(result);
@@ -134,5 +204,3 @@ charCount('hello')
 
 
 
-// Reverse an array 
-// example reverseArr([1,2,3,4]) would return [4,3,2,1]
