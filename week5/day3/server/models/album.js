@@ -18,8 +18,7 @@ const AlbumSchema = new mongoose.Schema({
     },
     genre:{
         type:String,
-        enum:{values: ['Rock', 'Alternative', 'Hip-hop/rap', 'Pop', 'Classical', 'Metal', 'Blues', 'Jazz', 'Country'], message:'Genre not in list of acceptable genres'},
-        // message: 'Genre not in list of acceptable genres'
+        enum:{values: ['Rock', 'Alternative', 'Hip-hop/rap', 'Pop', 'Classical', 'Metal', 'Blues', 'Jazz', 'Country'], message:'Genre not in list of acceptable genres'}
     },
     explicit:{
         type:Boolean,
