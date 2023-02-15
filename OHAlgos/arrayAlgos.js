@@ -99,6 +99,7 @@ const reverseArrInPlace = (arr) => {
         arr[idx] = arr[pointer2]
         arr[pointer2] = temp
     }
+    return arr
 }
 
-
+console.log(reverseArrInPlace([1,2,3,4]));

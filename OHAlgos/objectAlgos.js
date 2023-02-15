@@ -17,8 +17,8 @@ console.log('Y', coordinate['y'])
 
 // Adds together the values at the two keys, they happen to be numbers so the sum will = 3
 //                       2                 1
-// let sum = coordinate['x'] + coordinate['y']
-
+let sum = coordinate['x'] + coordinate['y']
+console.log(sum);
 
 // the code below will not work it will concatenate the 2 strings ('x', 'y') so it will look for a key of 'xy' in the coordinate object 
 // let sum = coordinate['x' + 'y'] // ===> coordinate['xy']
@@ -27,14 +27,49 @@ console.log(sum)
 
 
 
+
+
+
+
 let coordinates = [
-    {x:1, y:2},
-    {x:3, y:1},
-    {x:4, y:6},
-    {x:0, y:3},
+    {x:1, y:2}, // false
+    {x:3, y:1}, // false
+    {x:4, y:16}, // true count:1 
+    {x:4, y:5}, // true count:2
 ]
-// * Given the list of coordinates above determine if x+y = n 
+let num = 10
+// * Given the list of coordinates and a number above determine if x+y = n 
 // * return back a number of how many times x+y = n 
+
+// * write a function that takes in 2 params 
+// * create a var for count 
+// * loop through the coordinates arr
+// * if x+y = num then we increase the count by 1 
+// * If not do nothing 
+// * return count 
+
+const checkXAndY = (arr, n) => {
+    let count = 0
+    for (let idx = 0; idx < arr.length; idx++){
+        if(arr[idx]['x'] + arr[idx]['y'] === n){
+            count++
+        }
+    }
+    return count
+}
+console.log(checkXAndY(coordinates, num));
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Given a string return an object with the count of every character in the string 
