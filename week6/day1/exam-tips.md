@@ -10,3 +10,4 @@
 
 ## 5.) Break the wireframe down into small manageable pieces and start tackling one at a time I like to start with home/landing page then move to create, read one, update, and then delete but you can go in whatever order you would like 
 
+# IMPORTANT REMINDER Delete the node modules folders in BOTH Server and Client 
