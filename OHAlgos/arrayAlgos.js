@@ -93,7 +93,7 @@ const reverseArr = (arr) => {
 console.log(reverseArr([1,2,3,4,5,6,7,8,9,10]))
 
 const reverseArrInPlace = (arr) => {
-    for (let idx = 0; idx < arr.length; idx++){
+    for (let idx = 0; idx < arr.length/2; idx++){
         let pointer2 = arr.length-1-idx
         let temp = arr[idx]
         arr[idx] = arr[pointer2]

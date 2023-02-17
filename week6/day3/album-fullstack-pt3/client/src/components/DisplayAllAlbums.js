@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import './allAlbums.css'
 const DisplayAllAlbums = (props) => {
     const {allAlbums, setAllAlbums} = props
     useEffect(() => {
@@ -20,7 +21,7 @@ const DisplayAllAlbums = (props) => {
             <div className='d-flex flex-wrap justify-content-around'>
             {
                 allAlbums.map((album) => (
-                    <div className='border border-dark p-3 m-3 w-25' key={album._id}>
+                    <div className='p-3 m-3 w-25 album' key={album._id}>
                         <p>Album Name: {album.albumName}</p>
                         <p>Artist: {album.artist}</p>
                         <p>Release Year: {album.releaseYear}</p>
@@ -29,8 +30,8 @@ const DisplayAllAlbums = (props) => {
                             <p>Explicit: <span className='text-danger'>&#127348;</span></p>:
                             <p>Clean ✔️</p>
                         }
-                    <Link className='me-3'>Edit</Link>
-                    <Link to={`/oneAlbum/${album._id}`}>Details</Link>
+                    <Link to={`/editAlbum/${album._id}`} className='me-3 btn border'>Edit</Link>
+                    <Link to={`/oneAlbum/${album._id}`} className='btn border'>Details</Link>
                     </div>
                 ))   
             }
