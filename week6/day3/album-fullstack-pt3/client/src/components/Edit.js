@@ -12,7 +12,7 @@ const Edit = (props) => {
         genre: 'Rock',
         explicit: false
     })
-
+''
 
     useEffect(() => {
         axios.get(`http://localhost:8000/api/oneAlbum/${id}`)

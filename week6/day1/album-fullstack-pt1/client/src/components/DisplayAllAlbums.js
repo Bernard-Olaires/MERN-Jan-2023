@@ -18,7 +18,7 @@ const DisplayAllAlbums = (props) => {
             <h2>Check out our album collection</h2>
             {
                 allAlbums.map((album) => (
-                    <div className='border border-success'>
+                    <div className='border border-success'>p
                         <p>Album Name: {album.albumName}</p>
                         <p>Artist: {album.artist}</p>
                         <p>Release Year: {album.releaseYear}</p>

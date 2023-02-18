@@ -24,7 +24,7 @@ const AlbumForm = (props) => {
         setAlbum(prevState => ({...prevState, [e.target.name]: e.target.value}))
     }
 
-    const handleSubmit = (e) => {
+    const onSubmitHandler = (e) => {
         e.preventDefault()
         console.log(`New Album: ${JSON.stringify(album)}`)
         // console.log('New Album:' +  album)
