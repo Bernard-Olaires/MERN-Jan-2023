@@ -20,7 +20,7 @@ module.exports = {
                 console.log(userToken);
 
                 // Sending back the logged in user 
-                res.cookie('userToken', userToken, {httpOnly:true, maxAge:2 * 60 * 60 * 1000 }).status(201).json({message:'User logged in', user:newUser})
+                res.status(201).cookie('userToken', userToken, {httpOnly:true, maxAge:2 * 60 * 60 * 1000 }).json({message:'User logged in', user:newUser})
             }
         }
         catch(err){
