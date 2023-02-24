@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import './logRegForm.css'
-import {Link, useNavigate} from 'react-router-dom'
+import './loginRegForm.css'
+import { Link, useNavigate} from 'react-router-dom';
 import axios from 'axios'
 const Register = (props) => {
     const navigate = useNavigate()
@@ -14,11 +14,9 @@ const Register = (props) => {
     const onChangeHandler = (e) => {
         setUserReg({...userReg, [e.target.name]: e.target.value})
     }
-
-
-    // ! Need onsubmithandler for register
     const submitHandler = (e) => {
-        e.preventDefault()
+        console.log("HERE");
+        e.preventDefault();
         axios.post('http://localhost:8000/api/register', userReg, {withCredentials:true})
             .then((res) => {
                 console.log(res);
@@ -28,28 +26,28 @@ const Register = (props) => {
                 console.log(err);
             })
     }
-
     return (
-        <div className='bg-img'>
+        <div className=''>
             <h1 className='text-white'>Register!</h1>
-            <form onSubmit={submitHandler} className='col-4 mx-auto user-form'>
+            <form onSubmit={submitHandler} className='col-4 mx-auto user-form mt-5'>
                 <label className='form-label'>First Name:</label>
-                <input className='form-control' type="text" name='firstName' value={userReg.firstName} onChange={onChangeHandler}/>
+                <input type="text" name="firstName" className='form-control' onChange={onChangeHandler} value={userReg.firstName}/>
 
                 <label className='form-label'>Last Name:</label>
-                <input className='form-control' type="text" name='lastName' value={userReg.lastName} onChange={onChangeHandler}/>
+                <input type="text" name="lastName" className='form-control' onChange={onChangeHandler} value={userReg.lastName}/>
 
                 <label className='form-label'>Email:</label>
-                <input className='form-control' type="text" name='email' value={userReg.email} onChange={onChangeHandler}/>
+                <input type="text" name="email" className='form-control' onChange={onChangeHandler} value={userReg.email}/>
 
                 <label className='form-label'>Password:</label>
-                <input className='form-control' type="password" name='password' value={userReg.password} onChange={onChangeHandler}/>
+                <input type="text" name="password" className='form-control' onChange={onChangeHandler} value={userReg.password}/>
 
                 <label className='form-label'>Confirm Password:</label>
-                <input className='form-control' type="password" name='confirmPassword' value={userReg.confirmPassword} onChange={onChangeHandler}/>
-                <button className='btn btn-dark mt-3'>Register</button>
+                <input type="text" name="confirmPassword" className='form-control' onChange={onChangeHandler} value={userReg.confirmPassword}/>
+
+                <button className='btn btn-dark border mt-3'>Register</button>
                 <br />
-                <Link className='text-white' to={'/login'}>Already have an account? click here to login</Link>
+                <Link className='text-white' to={'/login'}>Already have an account? Login here</Link>
             </form>
         </div>
 )}

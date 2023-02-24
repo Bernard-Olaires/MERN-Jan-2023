@@ -5,6 +5,12 @@
     background-repeat: no-repeat;
     height: 100vh;
 }
+
+.login{
+    background-image: url('../images/login.jpg');
+}
+
+
 .user-form{
     background-color: rgba(128, 128, 128, .5);
     padding: 20px;
