@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import './allAlbums.css'
 const DisplayAllAlbums = (props) => {
     const {allAlbums, setAllAlbums} = props
+
+    const navigate = useNavigate()
     useEffect(() => {
-        axios.get('http://localhost:8000/api/allAlbums')
+        axios.get('http://localhost:8000/api/allAlbums', {withCredentials:true})
             .then((allAlbums) => {
                 // console.log(allAlbums.data);
                 setAllAlbums(allAlbums.data)
             })
             .catch((err) => {
                 console.log(err);
+                setAllAlbums([])
+                navigate('/')
             })
-    })
+    }, [])
 
     return (
         <div className='p-4'>

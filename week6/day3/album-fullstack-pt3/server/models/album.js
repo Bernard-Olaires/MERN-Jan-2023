@@ -28,7 +28,7 @@ const AlbumSchema = new mongoose.Schema({
         type:Boolean,
         required: true,
         required:[true, 'Explicit is required']
-    }
+    },
     
 }, {timestamps:true})
 const Album = mongoose.model('Album', AlbumSchema);

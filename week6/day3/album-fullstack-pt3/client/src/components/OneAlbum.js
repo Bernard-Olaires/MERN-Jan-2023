@@ -21,7 +21,7 @@ const OneAlbum = (props) => {
     const deleteHandler = () => {
         axios.delete(`http://localhost:8000/api/deleteAlbum/${id}`)
             .then((res) => {
-                navigate('/')
+                navigate('/dashboard')
             })
             .catch((err) => {
                 console.log(err);

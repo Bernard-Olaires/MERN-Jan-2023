@@ -38,7 +38,7 @@ const Edit = (props) => {
         e.preventDefault();
         axios.put(`http://localhost:8000/api/updateAlbum/${id}`, album)
             .then((res) => {
-                navigate('/')
+                navigate('/dashboard')
             })
             .catch((err) => {
                 console.log(err);
