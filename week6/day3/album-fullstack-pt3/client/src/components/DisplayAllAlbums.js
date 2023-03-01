@@ -7,8 +7,9 @@ const DisplayAllAlbums = (props) => {
 
     const navigate = useNavigate()
     useEffect(() => {
-        axios.get('http://localhost:8000/api/allAlbums', {withCredentials:true})
+        axios.get('http://localhost:8000/api/albumsByLoggedInUser', {withCredentials:true})
             .then((allAlbums) => {
+                console.log(allAlbums);
                 // console.log(allAlbums.data);
                 setAllAlbums(allAlbums.data)
             })

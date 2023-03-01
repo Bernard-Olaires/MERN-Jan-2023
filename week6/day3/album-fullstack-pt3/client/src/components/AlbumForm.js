@@ -28,6 +28,7 @@ const AlbumForm = (props) => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/postAlbum', album, {withCredentials:true})
             .then((res) => {
+                console.log(res);
                 setAllAlbums([...allAlbums, res.data])
                 navigate('/dashboard')
             })
