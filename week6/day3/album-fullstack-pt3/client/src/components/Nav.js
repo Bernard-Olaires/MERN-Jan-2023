@@ -26,6 +26,7 @@ const Nav = (props) => {
             <div className='w-50 d-flex justify-content-end '>
                 <Link className='nav-link me-5' to={'/newAlbum/form'}>Post a new album</Link>
                 <Link className='nav-link' to={'/dashboard'}>Home</Link>
+                <Link to={'/profile'}>Profile</Link>
                 <button className='ms-5' onClick={logout}>Logout</button>
             </div>
         </div>

@@ -15,10 +15,12 @@ module.exports = {
     },
     allAlbumsByLoggedInUser: async (req,res) => {
         try{
-            const decodedJwt = jwt.decode(req.cookies.userToken, {complete:true})
-            const user_id = decodedJwt.payload._id
-            const allAlbumsByLoggedInUser = await Album.find({user_id:user_id})
-            console.log(allAlbumsByLoggedInUser);
+            console.log('USER ID FROM AUTHENTICATE',req.user);
+            const idFromAuthenticate = req.user
+            // const decodedJwt = jwt.decode(req.cookies.userToken, {complete:true})
+            // const user_id = decodedJwt.payload._id
+            const allAlbumsByLoggedInUser = await Album.find({user_id:idFromAuthenticate})
+            // console.log(allAlbumsByLoggedInUser);
             res.json(allAlbumsByLoggedInUser)
         }
         catch(err){
