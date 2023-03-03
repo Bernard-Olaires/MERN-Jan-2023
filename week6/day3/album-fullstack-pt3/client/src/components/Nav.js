@@ -9,6 +9,7 @@ const Nav = (props) => {
         axios.post('http://localhost:8000/api/logout', {} , {withCredentials:true})
             .then((res) => {
                 console.log(res);
+                window.localStorage.removeItem('uuid')
                 navigate('/')
             })
             .catch((err) => {

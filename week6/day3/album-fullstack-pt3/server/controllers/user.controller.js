@@ -16,7 +16,7 @@ module.exports = {
                 const newUser = await User.create(req.body)
                 // * jwt.sign creates the token the first thing we pass is what we want to serialize (payload)
                 // * the second param is a secret key to serialize 
-                const userToken = jwt.sign({_id: newUser._id, email:newUser.email}, SECRET, {expiresIn:'7200000ms'})
+                const userToken = jwt.sign({_id: newUser._id, email:newUser.email, username:newUser.firstName}, SECRET, {expiresIn:'7200000ms'})
                 console.log(userToken);
                 // const expires = (new Date(Date.now())).toLocaleString('en-US', {timeZone:"America/Los_Angeles"})
                 // const date = new Date()
@@ -38,7 +38,7 @@ module.exports = {
             if(user){
                 const passwordMatch = await bcrypt.compare(req.body.password, user.password)
                 if (passwordMatch){
-                    const userToken = jwt.sign({_id: user._id, email:user.email}, SECRET, {expiresIn:'7200000ms'})
+                    const userToken = jwt.sign({_id: user._id, email:user.email, username:user.firstName}, SECRET, {expiresIn:'7200000ms'})
                     res.status(201).cookie('userToken', userToken, {httpOnly:true,  maxAge: 2 * 60 * 60 * 1000 }).json({success: 'user logged in',userToken:userToken, user: user})
                 }else{
                     res.status(400).json({message:"Invalid Email/Password"})
@@ -55,9 +55,5 @@ module.exports = {
     logout: (req, res) => {
         res.clearCookie('userToken')
         res.json({message:'Logged out successfully'})
-    },
-    verifyToken: async (req, res) =>{
-        // const response = authenticate()
-        res.json({message:req.user})
     }
 }
