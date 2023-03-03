@@ -1,10 +1,11 @@
 import './loginRegForm.css'
 import { Link, useNavigate, useLocation} from 'react-router-dom';
 import axios from 'axios'
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { userContext } from '../context/UserContext';
 
 const Login = (props) => {
-
+    const {loggedInUser, setLoggedInUser} = useContext(userContext)
     const path = useLocation().pathname;
     const location = path.split('/')[1]
     // console.log(location);
@@ -23,6 +24,8 @@ const Login = (props) => {
         axios.post('http://localhost:8000/api/login', userLogin, {withCredentials:true})
             .then((res) => {
                 console.log(res);
+                setLoggedInUser(res.data.user)
+                window.localStorage.setItem('uuid', res.data.user._id)
                 navigate('/dashboard')
             })
             .catch((err) => {

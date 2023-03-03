@@ -1,5 +1,5 @@
 const Album = require('../models/album')
-
+const jwt = require('jsonwebtoken')
 module.exports = {
     // Key value pairs 
     // Keys are the names of the functions and values are the functions
@@ -13,6 +13,20 @@ module.exports = {
                 res.status(500).json(err)
             })
     },
+    allAlbumsByLoggedInUser: async (req,res) => {
+        try{
+            console.log('USER ID FROM AUTHENTICATE',req.user);
+            const idFromAuthenticate = req.user
+            // const decodedJwt = jwt.decode(req.cookies.userToken, {complete:true})
+            // const user_id = decodedJwt.payload._id
+            const allAlbumsByLoggedInUser = await Album.find({user_id:idFromAuthenticate})
+            // console.log(allAlbumsByLoggedInUser);
+            res.json(allAlbumsByLoggedInUser)
+        }
+        catch(err){
+            res.status(500).json(err)
+        }
+    },
     getOneAlbum: (req, res) => {
         Album.findOne({ _id: req.params.id})
             .then((oneAlbum) => {
@@ -22,16 +36,31 @@ module.exports = {
                 res.status(500).json(err)
             })
     },
-    createAlbum: (req, res) => {
+    createAlbum: async (req, res) => {
+        try{
+            console.log('HERE');
+            const decodedJwt = jwt.decode(req.cookies.userToken, {complete:true})
+            console.log(decodedJwt);
+            const user_id = decodedJwt.payload._id
+            console.log('USER ID', user_id);
+            const album = req.body
+            album['user_id'] = user_id
+            const completedAlbum = await Album.create(album)
+            console.log(completedAlbum);
+            res.json(completedAlbum)
+        }
+        catch(err){
+            res.status(500).json(err)
+        }
         // console.log('REQ*********', req)
         // console.log('BODY*********', req.body)
-        Album.create(req.body)
-            .then((newAlbum) => {
-                res.json(newAlbum)
-            })
-            .catch((err) => {
-                res.status(500).json(err)
-            })
+        // Album.create(req.body)
+        //     .then((newAlbum) => {
+        //         res.json(newAlbum)
+        //     })
+        //     .catch((err) => {
+        //         res.status(500).json(err)
+        //     })
     },
     updateAlbum: (req, res) => {
         // console.log('PARAMS*********', req.params)
