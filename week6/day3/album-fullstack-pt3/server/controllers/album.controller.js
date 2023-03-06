@@ -1,4 +1,5 @@
 const Album = require('../models/album')
+const Comment = require('../models/comment');
 const jwt = require('jsonwebtoken')
 module.exports = {
     // Key value pairs 
@@ -27,14 +28,16 @@ module.exports = {
             res.status(500).json(err)
         }
     },
-    getOneAlbum: (req, res) => {
-        Album.findOne({ _id: req.params.id})
-            .then((oneAlbum) => {
-                res.json(oneAlbum)
-            })
-            .catch((err) => {
-                res.status(500).json(err)
-            })
+    getOneAlbum: async (req, res) => {
+        try{
+            const album_id = req.params.id
+            const oneAlbum = await Album.findById(album_id)
+            const allCommentsOnOneAlbum = await Comment.find({album_id:album_id})
+            res.json({oneAlbum:oneAlbum, allCommentsOnOneAlbum:allCommentsOnOneAlbum})
+        }
+        catch(err){
+            res.status(500).json(err)
+        }
     },
     createAlbum: async (req, res) => {
         try{
